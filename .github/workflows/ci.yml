@@ -11,6 +11,7 @@ jobs:
     name: Test (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.11", "3.12"]
 
@@ -23,22 +24,18 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install build backend + dependencies
+      - name: Install dependencies
         run: |
-          pip install --upgrade pip
-          pip install hatchling
+          python -m pip install --upgrade pip
+          pip install hatchling editables
           pip install pytest pytest-cov click
           pip install -e . --no-build-isolation
-
-      - name: Show installed packages (debug)
-        run: pip list
 
       - name: Verify import works
         run: python -c "from datacloak import mask, scan; print('Import OK')"
 
       - name: Run tests with coverage
-        run: |
-          pytest tests/ -v --tb=short --cov=datacloak --cov-report=term-missing
+        run: pytest tests/ -v --tb=short --cov=datacloak --cov-report=term-missing
 
   build:
     name: Build distribution
