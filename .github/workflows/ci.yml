@@ -1,15 +1,12 @@
-name: CI/CD
+name: CI
 
 on:
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-  release:
-    types: [published]
 
 jobs:
-  # ── Job 1: Run tests on every push/PR ─────────────────────────
   test:
     name: Test (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
@@ -18,28 +15,31 @@ jobs:
         python-version: ["3.11", "3.12"]
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-          cache: pip
 
-      - name: Install dependencies
+      - name: Install build backend + dependencies
         run: |
           pip install --upgrade pip
-          pip install -e ".[dev]"
+          pip install hatchling
+          pip install pytest pytest-cov click
+          pip install -e . --no-build-isolation
+
+      - name: Show installed packages (debug)
+        run: pip list
+
+      - name: Verify import works
+        run: python -c "from datacloak import mask, scan; print('Import OK')"
 
       - name: Run tests with coverage
-        run: pytest --cov=datacloak --cov-report=xml
+        run: |
+          pytest tests/ -v --tb=short --cov=datacloak --cov-report=term-missing
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@v4
-        with:
-          file: ./coverage.xml
-          fail_ci_if_error: false
-
-  # ── Job 2: Build on every push ────────────────────────────────
   build:
     name: Build distribution
     runs-on: ubuntu-latest
@@ -54,31 +54,7 @@ jobs:
 
       - name: Build
         run: |
-          pip install build twine
+          pip install --upgrade pip
+          pip install build twine hatchling
           python -m build
           twine check dist/*
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist/
-
-  # ── Job 3: Publish to PyPI on GitHub Release ──────────────────
-  publish:
-    name: Publish to PyPI
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.event_name == 'release' && github.event.action == 'published'
-
-    steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist/
-
-      - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
