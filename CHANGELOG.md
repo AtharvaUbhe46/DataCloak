@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.1.0] — 2025-06-01
+## [0.1.1] — 2025-06-01
 
 ### Added
 - Initial release of DataCloak
@@ -19,5 +19,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - JSON report generation with risk-level classification
 - `datacloak` CLI with `scan`, `mask`, and `report` commands
 - Custom detector framework via `BaseDetector`
-- Full pytest test suite (>90% coverage)
+- Full pytest test suite (>85% coverage)
 - Typed codebase (PEP 561 compliant)

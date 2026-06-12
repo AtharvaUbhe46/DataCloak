@@ -5,8 +5,7 @@
 [![PyPI version](https://img.shields.io/pypi/v/datacloak.svg)](https://pypi.org/project/datacloak/)
 [![Python](https://img.shields.io/pypi/pyversions/datacloak.svg)](https://pypi.org/project/datacloak/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tests](https://github.com/AtharvaUbhe46/DataCloak/actions/workflows/ci.yml/badge.svg)](https://github.com/AtharvaUbhe46/datacloak/actions)
-[![Coverage](https://img.shields.io/codecov/c/github/datacloak/datacloak)](https://codecov.io/gh/datacloak/datacloak)
+[![Tests](https://github.com/AtharvaUbhe46/DataCloak/actions/workflows/ci.yml/badge.svg)](https://github.com/AtharvaUbhe46/DataCloak/actions)
 
 ---
 

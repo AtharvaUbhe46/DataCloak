@@ -50,7 +50,7 @@ from .scanner import ScanResult, scan_summary, scan_text
 if TYPE_CHECKING:
     from pathlib import Path
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "DataCloak Contributors"
 __license__ = "MIT"
 

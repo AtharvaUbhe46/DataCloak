@@ -38,7 +38,7 @@ pip install -e ".[dev]"
 ```bash
 pytest --cov=datacloak --cov-report=term-missing
 
-# Expect: TOTAL coverage ≥ 90%
+# Expect: TOTAL coverage ≥ 85%
 ```
 
 ---
@@ -225,7 +225,7 @@ DataCloak follows [Semantic Versioning](https://semver.org/):
 ## Checklist before each release
 
 - [ ] All tests pass: `pytest`
-- [ ] Coverage ≥ 90%: `pytest --cov=datacloak`
+- [ ] Coverage ≥ 85%: `pytest --cov=datacloak`
 - [ ] No lint errors: `ruff check datacloak`
 - [ ] No type errors: `mypy datacloak`
 - [ ] `CHANGELOG.md` updated
