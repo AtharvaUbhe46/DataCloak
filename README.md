@@ -5,7 +5,7 @@
 [![PyPI version](https://img.shields.io/pypi/v/datacloak.svg)](https://pypi.org/project/datacloak/)
 [![Python](https://img.shields.io/pypi/pyversions/datacloak.svg)](https://pypi.org/project/datacloak/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tests](https://github.com/datacloak/datacloak/actions/workflows/ci.yml/badge.svg)](https://github.com/datacloak/datacloak/actions)
+[![Tests](https://github.com/AtharvaUbhe46/DataCloak/actions/workflows/ci.yml/badge.svg)](https://github.com/AtharvaUbhe46/datacloak/actions)
 [![Coverage](https://img.shields.io/codecov/c/github/datacloak/datacloak)](https://codecov.io/gh/datacloak/datacloak)
 
 ---
@@ -79,7 +79,7 @@ mask(text, mode="partial")
 mask(text, mode="full")
 # → 'Contact: [EMAIL_REDACTED] | Phone: [PHONE_REDACTED]'
 
-# Hash — SHA-256 digest (deterministic, reversible with original)
+# Hash — SHA-256 digest (deterministic and irreversible)
 mask(text, mode="hash")
 # → 'Contact: [HASH:142d78e466cacab3] | Phone: [HASH:7619ee8cea49187f]'
 ```
@@ -126,7 +126,7 @@ print(r.to_json())
 
 ```json
 {
-  "generated_at": "2025-06-01T10:23:00+00:00",
+  "generated_at": "2026-06-01T10:23:00+00:00",
   "source": "user_input",
   "total_findings": 4,
   "summary": {
@@ -244,7 +244,7 @@ register_handler(PDFHandler())
 
 ```bash
 # Clone the repo
-git clone https://github.com/datacloak/datacloak.git
+git clone https://github.com/AtharvaUbhe46/DataCloak
 cd datacloak
 
 # Install dev dependencies
@@ -257,35 +257,13 @@ pytest
 pytest --cov=datacloak --cov-report=term-missing
 ```
 
-Target: **≥ 90% coverage**.
-
----
-
-**Design principles applied:**
-- Single Responsibility — each detector, masker, scanner, and reporter is self-contained
-- Open/Closed — extend via `BaseDetector` or `FileHandler` without modifying core
-- Liskov Substitution — any `BaseDetector` subclass drops in transparently
-- Dependency Injection — all public functions accept `detectors=` for testability
-- Logging — structured `logging` throughout, silent by default (NullHandler)
-
----
-
-## 📦 Publishing to PyPI
-
-See [PUBLISHING.md](PUBLISHING.md) for a complete step-by-step guide.
-
-```bash
-# Quick summary
-pip install build twine
-python -m build
-twine upload dist/*
-```
+Target: **≥ 85% coverage**.
 
 ---
 
 ## 📄 License
 
-[MIT License](LICENSE) — Copyright © 2025 DataCloak Contributors.
+[MIT License](LICENSE) — Copyright © 2026 DataCloak Contributors.
 
 ---
 
@@ -296,7 +274,7 @@ Contributions, issues, and feature requests are welcome! Please read the contrib
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feat/my-detector`
 3. Write your code and tests
-4. Run `pytest` and ensure coverage stays ≥ 90%
+4. Run `pytest` and ensure coverage stays ≥ 85%
 5. Open a pull request
 
 ---
