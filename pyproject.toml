@@ -8,7 +8,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "datacloak"
-version = "0.1.1"
+version = "0.2.0"
 description = "Privacy protection library for detecting and masking PII in text, logs, and files."
 readme = "README.md"
 license = { text = "MIT" }
