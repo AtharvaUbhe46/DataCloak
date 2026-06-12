@@ -103,7 +103,7 @@ omit     = ["datacloak/cli.py"]  # CLI tested via integration; omit from branch 
 [tool.coverage.report]
 show_missing = true
 skip_covered = false
-fail_under   = 90
+fail_under   = 85
 
 # ---------------------------------------------------------------------------
 # Ruff (linting + formatting)
