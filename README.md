@@ -261,29 +261,6 @@ Target: **≥ 90% coverage**.
 
 ---
 
-## 🏗️ Architecture
-
-```
-datacloak/
-├── __init__.py          # Public API: mask(), scan(), report(), scan_file()
-├── detectors/
-│   ├── __init__.py      # Exports all detectors + DEFAULT_DETECTORS registry
-│   ├── base.py          # BaseDetector, Detection dataclass
-│   ├── aadhaar.py
-│   ├── pan.py
-│   ├── mobile.py
-│   ├── email.py
-│   ├── upi.py
-│   ├── credit_card.py   # Luhn validation
-│   ├── ifsc.py
-│   └── ip_address.py    # IPv4 + IPv6
-├── masker.py            # mask_text(), masking modes logic
-├── scanner.py           # scan_text(), scan_summary()
-├── file_scanner.py      # scan_file(), mask_file(), FileHandler interface
-├── reporter.py          # Report dataclass, generate_report_*()
-└── cli.py               # Click CLI: scan, mask, report commands
-```
-
 **Design principles applied:**
 - Single Responsibility — each detector, masker, scanner, and reporter is self-contained
 - Open/Closed — extend via `BaseDetector` or `FileHandler` without modifying core
