@@ -2,11 +2,6 @@
 
 > **Privacy protection for Python applications** — detect and mask PII in text, logs, files, and data pipelines.
 
-[![PyPI version](https://img.shields.io/pypi/v/datacloak.svg)](https://pypi.org/project/datacloak/)
-[![Python](https://img.shields.io/pypi/pyversions/datacloak.svg)](https://pypi.org/project/datacloak/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tests](https://github.com/AtharvaUbhe46/DataCloak/actions/workflows/ci.yml/badge.svg)](https://github.com/AtharvaUbhe46/DataCloak/actions)
-
 ---
 
 DataCloak is a production-ready Python library for **automatically detecting and masking Personally Identifiable Information (PII)** — built for India-first compliance use cases (Aadhaar, PAN, UPI) while covering universal types like email and credit cards.

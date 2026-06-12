@@ -50,7 +50,7 @@ from .scanner import ScanResult, scan_summary, scan_text
 if TYPE_CHECKING:
     from pathlib import Path
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 __author__ = "Atharva Ubhe"
 __license__ = "MIT"
 
