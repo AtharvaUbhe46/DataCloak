@@ -51,7 +51,7 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 __version__ = "0.1.1"
-__author__ = "DataCloak Contributors"
+__author__ = "Atharva Ubhe"
 __license__ = "MIT"
 
 # Set up a NullHandler so the library is silent unless the caller configures logging.
